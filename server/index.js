@@ -39,9 +39,12 @@ const cors =require("cors");
 
 const db=require('./db');
 const app=express();
+//product router
 const productRouter = require('./routes/productRouter');
 //user router
 const userRouter = require('./routes/userRouter');
+//rider router
+const riderRouter=require('./routes/riderRouter')
 
 const { configure } = require('@testing-library/react');
 
@@ -60,9 +63,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
     res.json({ message: "Welcome to Food Ordering"});
 });
-
+app.use('/api',riderRouter)
 app.use('/api/', productRouter);
 app.use('/api/', userRouter);
+
 
 
 // db connection and listen on port

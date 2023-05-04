@@ -1,8 +1,9 @@
 import Button from "./elements/Button";
 const ProductDetailCard = ({ product,onAddProduct }) => {
     return (
-        <div className="p-4 m-4 rounded-lg bg-slate-50">
-            <div className="flex flex-col items-center justify-between">
+        
+        <div className=" w-1/2 p-4 m-4 rounded-lg bg-slate-50  ">
+            <div className="flex flex-col items-center justify-between w-300">
                 <h2 className="text-3xl">{product.name}</h2>
                 <p className="text-2xl text-gray-500">
                     {product.desciption}

@@ -7,8 +7,11 @@ import Menu from "../pages/Menu";
 import ContactUs from "../pages/ContactUs";
 import PaymentSuccess from "../pages/PaymentSuccess";
 import Register from "../pages/Register";
+import {RiderRegistration} from "../pages/RiderRegistration";
+import PartnerRegistration from "../pages/PartnerRegistration";
 import { useSelector } from "react-redux";
 import { cartProducts } from "../stores/cart/cartSlice";
+import { Footer } from "../components/Footer";
 const Navigation=()=>{
 
   const productsInCart = useSelector(cartProducts);
@@ -18,14 +21,16 @@ return(
       <Header cartCount={productsInCart ? productsInCart.length : 0}/>
       <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path="/contact_us" element={<ContactUs/>}/>
+        <Route path="/contact-us" element={<ContactUs/>}/>
         <Route path="/login" element={<Login/>}/>
+        <Route path="/rider-registration" element={<RiderRegistration/>}/>
         <Route path="/register" element={<Register/>}/>
+        <Route path="/partner-registration" element={<PartnerRegistration/>}/>
         <Route path="/menu" element={<Menu/>}/>
         <Route path="/cart" element={<Cart/>}/>
         <Route path="/payment-sucess" element={<PaymentSuccess/>}/>
       </Routes>
-     
+     <Footer/>
     </BrowserRouter>
 )
 }

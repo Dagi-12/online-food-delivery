@@ -34,7 +34,7 @@ const Login = () => {
                     progress: undefined,
                     theme: 'dark'
                     });
-                navigate('/');
+                navigate('/menu');
             })
             .catch((error) => {
                 if (error.code === 'auth/wrong-password') {

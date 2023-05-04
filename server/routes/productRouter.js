@@ -23,9 +23,10 @@ router.get('/products-by-categories', async(req, res) => {
             }},
             { $project: { name: '$_id', products: 1, _id: 0}}
         ])
-        res.status(200).send({ data: products})
+        res.status(200).send({ data: products})  
     } catch (err) {
         res.status(400).send({ error: err})
     }
 })
+
 module.exports =router;
