@@ -5,7 +5,7 @@ const Rider = require('../models/riderModel');
 // POST /api/rider
 router.post('/rider', async (req, res) => {
   try {
-    const { firstName, lastName, email, phone, vehicleType } = req.body;
+    const { firstName, lastName, email, phone, vehicleType ,AboutYourSelf} = req.body;
 console.log(req.body)
     // create a new Rider document using the provided Mongoose schema
     const rider = new Rider({
@@ -14,7 +14,9 @@ console.log(req.body)
       email:email,
       phone:phone,
       vehicleType:vehicleType,
+      AboutYourSelf:AboutYourSelf,
     });
+
    
     // save the new Rider document to the database
     await rider.save();

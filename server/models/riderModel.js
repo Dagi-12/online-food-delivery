@@ -6,6 +6,7 @@ const riderSchema = new mongoose.Schema({
   email: { type: String, required: true },
   phone: { type: String, required: true },
   vehicleType: { type: String, enum: ['car', 'bicycle', 'motorcycle'], required: true },
+  AboutYourSelf: { type: String, required: true },
 });
 
 const Rider = mongoose.model('Rider', riderSchema);

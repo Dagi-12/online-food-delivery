@@ -45,8 +45,14 @@ const productRouter = require('./routes/productRouter');
 const userRouter = require('./routes/userRouter');
 //rider router
 const riderRouter=require('./routes/riderRouter')
+//partner router
+const partnerRouter =require('./routes/partnerRouter')
+//admin router
+const adminRouter =require('./routes/adminRouter')
+const authRouter=require('./routes/auths')
 
 const { configure } = require('@testing-library/react');
+const Partner = require('./models/partnerModel');
 
 
 var corsOptions = {
@@ -66,6 +72,11 @@ app.get("/", (req, res) => {
 app.use('/api',riderRouter)
 app.use('/api/', productRouter);
 app.use('/api/', userRouter);
+app.use('/api/', partnerRouter);
+app.use('/api/', adminRouter);
+app.use('/api/', authRouter);
+
+
 
 
 
@@ -76,5 +87,15 @@ db.on('open',()=>{
     });
     
 }).on('error',(error)=>{
-    console.log('Failed to conncet :',error)
+    console.log('Failed to conncet to db :',error)
+})
+
+//Creating API for fetching data of partners
+app.get("/getAllPartners",async(req,res)=>{
+    try{
+        const allPartner =await Partner.find({});
+        res.send({status:"ok",data:allPartner});
+    }catch(error){
+        console.log(error)
+    }
 })
